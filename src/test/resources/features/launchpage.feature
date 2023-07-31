@@ -18,7 +18,7 @@
 
   Feature: Launch Page of ds-algo
 
-    @Smoke
+    @Verify-getStared
     Scenario: User Launch Home Page of an ds-algo project
       Given User opens "https://dsportalapp.herokuapp.com/" link
       When User clicks on "Get Started" Button
