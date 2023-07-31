@@ -1,6 +1,4 @@
-package testcases;
-
-import org.testng.annotations.Test;
+package supportFiles;
 
 //import org.apache.logging.log4j.Logger;
 
