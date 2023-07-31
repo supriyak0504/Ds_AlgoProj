@@ -1,16 +1,12 @@
-package testcases;
+package supportFiles;
 
-import org.apache.poi.ss.formula.EvaluationCell;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Iterator;
-
-import static org.apache.poi.ss.usermodel.Cell.*;
 
 public class readexcelDemo {
     public static void main(String[] args)  {
