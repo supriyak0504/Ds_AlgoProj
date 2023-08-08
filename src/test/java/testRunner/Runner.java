@@ -4,9 +4,10 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features = {"S:/Education-Selenium SDET/intellij/IntellijPrograms/ProjectSetUp/src/test/java/features"},
+        features = {"C:\\numpy project\\dsalgo\\src\\test\\resources\\features"},
         glue = {"stepDefinition"},
-        monochrome = true,
+        tags = "not @ignore",
+       // monochrome = true,
         plugin = {
                 "pretty", "html:src/test/resources/Reports/qualitypiratesReport.html"
 

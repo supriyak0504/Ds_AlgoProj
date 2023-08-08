@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObject.Login_obj;
+import utilities.LoggerLoad;
 
 
 public class Login_SD {
@@ -27,6 +28,7 @@ public class Login_SD {
         @Then("The signed in homepage appears")
         public void the_signed_in_homepage_appears() {
             lp.CheckSignin();
+            LoggerLoad.info("User now SignIn");
 
         }
 

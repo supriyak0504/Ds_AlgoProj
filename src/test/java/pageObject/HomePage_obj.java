@@ -5,15 +5,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertTrue;
 
 public class HomePage_obj {
 
-        @FindBy(xpath = "//button[@class='btn']")
-        WebElement GetStartedbutton;
+        @FindBy(xpath = "//button[@class='btn']") WebElement GetStartedbutton;
         @FindBy(xpath = "//div/h5[text()='Array']") WebElement DisplayCheck;
 
         WebDriver driver = BaseClass.getDriver();
+
         public void InitHomePage(String string)
         {
             driver.get(string);

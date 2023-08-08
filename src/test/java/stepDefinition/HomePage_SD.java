@@ -4,14 +4,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObject.HomePage_obj;
+import utilities.LoggerLoad;
 
 public class HomePage_SD {
 
         HomePage_obj hp = new HomePage_obj();
         @Given("The home page opens with the link {string}")
         public void the_home_page_opens_with_the_link(String string) {
-            System.out.println("String Value" + string);
-            System.out.println("HP is" + hp.toString());
+            LoggerLoad.info("String Value" + string);
+            LoggerLoad.info("HP is" + hp.toString());
             hp.InitHomePage(string);
 
         }
