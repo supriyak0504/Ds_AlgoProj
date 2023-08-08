@@ -28,6 +28,7 @@ public class HomePage_obj {
 
         public void CheckHomePageDisplay()
         {
+            PageFactory.initElements(driver,this);
             boolean status = DisplayCheck.isDisplayed();
             assertTrue(status);
         }

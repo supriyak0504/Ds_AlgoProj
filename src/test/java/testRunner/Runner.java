@@ -4,11 +4,11 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features = {"S:/Education-Selenium SDET/intellij/IntellijPrograms/ProjectSetUp/src/test/java/features"},
+        features = {"C:/intellij/Ds/src/test/resources/features"},
         glue = {"stepDefinition"},
-        monochrome = true,
+        //tags = "not @ignore",
         plugin = {
-                "pretty", "html:src/test/resources/Reports/qualitypiratesReport.html"
+                "pretty", "html:src/test/resources/Reports/qualitypiratesReport.html",
 
         }
 )

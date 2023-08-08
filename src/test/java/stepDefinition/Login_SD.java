@@ -1,14 +1,20 @@
 package stepDefinition;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import pageObject.Login_obj;
+
+import java.util.List;
+
+import static baseDriverProperty.BaseClass.driver;
 
 
 public class Login_SD {
 
-        Login_obj lp = new Login_obj();
+      Login_obj lp = new Login_obj();
 
         @Given("User clicks on sign in option")
         public void user_clicks_on_sign_in_option() throws InterruptedException {
@@ -17,10 +23,10 @@ public class Login_SD {
 
         }
 
-        @When("The user enters the username and password")
-        public void the_user_enters_the_username_and_password() throws InterruptedException {
+        @When("The user enters the {string} and {string}")
+        public void the_user_enters_the_username_and_password(String username, String password) throws InterruptedException {
             Thread.sleep(2000);
-            lp.InputSigninData();
+            lp.InputSigninData(username, password);
 
         }
 
@@ -29,7 +35,5 @@ public class Login_SD {
             lp.CheckSignin();
 
         }
-
-
 
 }
