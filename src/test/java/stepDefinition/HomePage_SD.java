@@ -16,8 +16,8 @@ public class HomePage_SD {
 
         }
 
-        @When("user clicks get started without registration")
-        public void user_clicks_get_started_without_registration() throws InterruptedException {
+        @When("User clicks on Get Started intialPage")
+        public void User_clicks_on_Get_Started_intialPage() throws InterruptedException {
             System.out.println("HP is" + hp.toString());
             hp.GetStartedBtn();
 
