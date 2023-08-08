@@ -1,6 +1,6 @@
-#@ignore
-Feature: Open Homepage of Portal
 
+
+Feature: Open Homepage of Portal
   Scenario: Home page
     Given The home page opens with the link "https://dsportalapp.herokuapp.com/"
     When user clicks get started without registration
