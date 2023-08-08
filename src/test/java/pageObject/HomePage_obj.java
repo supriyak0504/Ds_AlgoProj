@@ -22,13 +22,13 @@ public class HomePage_obj {
 
         public void GetStartedBtn() throws InterruptedException {
             Thread.sleep(2000);
-            PageFactory.initElements(driver,this);
             GetStartedbutton.click();
 
         }
 
         public void CheckHomePageDisplay()
         {
+            PageFactory.initElements(driver,this);
             boolean status = DisplayCheck.isDisplayed();
             assertTrue(status);
         }
