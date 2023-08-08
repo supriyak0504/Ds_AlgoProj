@@ -17,7 +17,6 @@ public class BaseClass {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
-
         return driver;
     }
 
