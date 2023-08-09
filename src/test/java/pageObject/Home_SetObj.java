@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Home_SetObj {
-
     WebDriver driver = BaseClass.setDriver();
     @FindBy(xpath = "//button[@class='btn']")
     WebElement GetStartedbtn;

@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d57743b-9162-4566-b1c7-9dc683b24a44" name="Changes" comment="Adding - HomePage.feature from Target/Test-classes.">
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/TreeDS_obj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/TreeDS_obj.java" afterDir="false" />
+    <list default="true" id="6d57743b-9162-4566-b1c7-9dc683b24a44" name="Changes" comment="commiting Try Here">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_45_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_8_2023_12_45_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/HomePage_obj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/HomePage_obj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Home_SetObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Home_SetObj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/TryHere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/TryHere.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/shikha_backup" />
+        <entry key="$PROJECT_DIR$" value="shikha/restart_development" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,6 +43,7 @@
     </option>
   </component>
   <component name="ProjectId" id="2Soq5USfbXEqp9aHgDZCIaingMx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -255,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691513182082</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="commiting Try Here">
+      <created>1691608893358</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1691608893358</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -274,6 +286,7 @@
     <MESSAGE value="Commit." />
     <MESSAGE value="Adding Modules - Registration, Data Structure, Stack and Graph." />
     <MESSAGE value="Adding - HomePage.feature from Target/Test-classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding - HomePage.feature from Target/Test-classes." />
+    <MESSAGE value="commiting Try Here" />
+    <option name="LAST_COMMIT_MESSAGE" value="commiting Try Here" />
   </component>
 </project>
