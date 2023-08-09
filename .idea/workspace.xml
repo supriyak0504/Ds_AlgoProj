@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d57743b-9162-4566-b1c7-9dc683b24a44" name="Changes" comment="Adding - HomePage.feature from Target/Test-classes.">
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/TreeDS_obj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/TreeDS_obj.java" afterDir="false" />
+    <list default="true" id="6d57743b-9162-4566-b1c7-9dc683b24a44" name="Changes" comment="commiting Try Here">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/features/HomePage.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/HomePage.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +41,7 @@
     </option>
   </component>
   <component name="ProjectId" id="2Soq5USfbXEqp9aHgDZCIaingMx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
