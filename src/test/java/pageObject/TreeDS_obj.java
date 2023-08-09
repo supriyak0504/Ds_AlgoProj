@@ -218,7 +218,6 @@ public class TreeDS_obj {
         Assert.assertTrue(status);
     }
 
-    public void trialMethos() {
         
     }
 }
