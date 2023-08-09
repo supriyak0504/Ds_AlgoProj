@@ -1,0 +1,1439 @@
+Index: src/test/java/stepDefinition/QueueDs_SD.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepDefinition/QueueDs_SD.java b/src/test/java/stepDefinition/QueueDs_SD.java
+new file mode 100644
+--- /dev/null	(date 1691512778425)
++++ b/src/test/java/stepDefinition/QueueDs_SD.java	(date 1691512778425)
+@@ -0,0 +1,133 @@
++package stepDefinition;
++
++import io.cucumber.java.en.And;
++import io.cucumber.java.en.Given;
++import io.cucumber.java.en.Then;
++import io.cucumber.java.en.When;
++import pageObject.Queue_obj;
++import pageObject.TryHereEditor_obj;
++
++public class QueueDs_SD {
++
++Queue_obj qp = new Queue_obj();
++TryHereEditor_obj tr = new TryHereEditor_obj();
++
++/* QUEUE LANDING HOMEPAGE*/
++    @Given("User is on the SignedIn Home Page")
++    public void user_is_on_the_signed_in_home_page() {
++    qp.LandingPage();
++    }
++    @When("User Clicks on {string} button on Queue Data Structure")
++    public void user_clicks_on_button_on_queue_data_structure(String string) throws InterruptedException {
++        Thread.sleep(2000);
++    qp.QueueGStarted();
++    }
++
++
++    @Then("The queue page appears")
++    public void the_queue_page_appears() throws InterruptedException {
++
++            Thread.sleep(2000);
++            qp.CheckQueLanding();
++    }
++
++   /*IMPLEMENTATION OF QUEUES IN PYTHON*/
++    @When("User clicks on Implementation of Queue in python")
++    public void userClicksOnImplementationOfQueueInPython() throws InterruptedException {
++        Thread.sleep(2000);
++        qp.ImplofQueuePython();
++    }
++
++    @Then("The Implementation of Queue in python page opens")
++    public void the_implementation_of_queue_page_opens()throws InterruptedException {
++        Thread.sleep(2000);
++    qp.implQueuechk();
++    }
++
++    @And("User clicks on Try here button")
++    public void userClicksOnTryHereButton() throws InterruptedException{
++        Thread.sleep(2000);
++        qp.TryHereButton();
++    }
++
++    /*IMPLEMENTATION USING COLLECTIONS.DEQUEUE*/
++   // @Given("User is on Implementation of Queue in python landing page")
++  //  public void userIsOnImplementationOfQueueLandingPage()throws InterruptedException {
++   //     Thread.sleep(2000);
++   //     qp.implQueuechk();
++ //   }
++
++    @When("User clicks on implementation using collections.deque")
++    public void userClicksOnImplementationUsingCollectionsDeque()throws InterruptedException {
++        Thread.sleep(2000);
++        qp.implCollections();
++
++    }
++
++    @Then("The implementation using collections.deque page opens")
++    public void theImplementationUsingCollectionsDequePageOpens()throws InterruptedException {
++        Thread.sleep(2000);
++        qp.implCollchk();
++    }
++
++//Implementation using array
++  //  @Given("User is on implementation using collections.deque landing page")
++ //   public void userIsOnImplementationUsingCollectionsDequeLandingPage()throws InterruptedException {
++  //      Thread.sleep(2000);
++  //      qp.implCollchk();
++  //  }
++
++    @When("User clicks on implementation using array")
++    public void userClicksOnImplementationUsingArray()throws InterruptedException {
++        Thread.sleep(2000);
++    qp.implusingarray();
++    }
++
++    @Then("The implementation using array page opens")
++    public void theImplementationUsingArrayPageOpens()throws InterruptedException {
++        Thread.sleep(2000);
++    qp.implarraychk();
++    }
++
++ //   @Given("User is on implementation using array landing page")
++  //  public void userIsOnImplementationUsingArrayLandingPage()throws InterruptedException {
++  //      Thread.sleep(2000);
++  //  qp.implarraychk();
++  //  }
++
++    @When("User clicks on Queue Operations")
++    public void userClicksOnQueueOperations()throws InterruptedException {
++        Thread.sleep(2000);
++    qp.queueops();
++    }
++
++    @Then("The Queue Operations page opens")
++    public void theQueueOperationsPageOpens()throws InterruptedException {
++        Thread.sleep(2000);
++        qp.queueopschk();
++    }
++
++
++    //Try python Text editor Options
++
++    @Then("the text editor opens and user gives python code")
++    public void theTextEditorOpensAndUserGivesPythonCode() throws InterruptedException {
++        Thread.sleep(2000);
++        tr.EditorBoxInput();
++
++    }
++
++    @And("User clicks on Run Button")
++    public void userClicksOnRunButton() throws InterruptedException {
++        Thread.sleep(2000);
++        tr.RunBtnclick();
++    }
++
++    @Then("The output is displayed")
++    public void theOutputIsDisplayed() throws Exception {
++        Thread.sleep(2000);
++        tr.OutputChkMsg();
++
++    }
++
++}
+Index: src/test/java/stepDefinition/GetStarted_SD.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepDefinition/GetStarted_SD.java b/src/test/java/stepDefinition/GetStarted_SD.java
+new file mode 100644
+--- /dev/null	(date 1691512778421)
++++ b/src/test/java/stepDefinition/GetStarted_SD.java	(date 1691512778421)
+@@ -0,0 +1,14 @@
++package stepDefinition;
++
++import io.cucumber.java.en.Then;
++import pageObject.Home_SetObj;
++
++public class GetStarted_SD {
++
++    Home_SetObj hmp = new Home_SetObj();
++    @Then("User clicks on main page Get Started")
++    public void user_clicks_on_main_page_get_started() throws InterruptedException {
++        hmp.GetStartedBtn_HMPage();
++    }
++
++}
+Index: src/test/java/pageObject/HomePage_obj.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pageObject;\r\n\r\nimport baseDriverProperty.BaseClass;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.support.FindBy;\r\nimport org.openqa.selenium.support.PageFactory;\r\nimport static org.testng.Assert.assertTrue;\r\n\r\npublic class HomePage_obj {\r\n\r\n        @FindBy(xpath = \"//button[@class='btn']\")\r\n        WebElement GetStartedbutton;\r\n        @FindBy(xpath = \"//div/h5[text()='Array']\") WebElement DisplayCheck;\r\n\r\n        WebDriver driver = BaseClass.getDriver();\r\n        public void InitHomePage(String string)\r\n        {\r\n            driver.get(string);\r\n            PageFactory.initElements(driver,this);\r\n        }\r\n\r\n        public void GetStartedBtn() throws InterruptedException {\r\n            Thread.sleep(2000);\r\n            GetStartedbutton.click();\r\n\r\n        }\r\n\r\n        public void CheckHomePageDisplay()\r\n        {\r\n            PageFactory.initElements(driver,this);\r\n            boolean status = DisplayCheck.isDisplayed();\r\n            assertTrue(status);\r\n        }\r\n\r\n    }\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pageObject/HomePage_obj.java b/src/test/java/pageObject/HomePage_obj.java
+--- a/src/test/java/pageObject/HomePage_obj.java	(revision 73777702407930dba0efdd77c7f5a2e4213fa689)
++++ b/src/test/java/pageObject/HomePage_obj.java	(date 1691512778414)
+@@ -22,6 +22,7 @@
+ 
+         public void GetStartedBtn() throws InterruptedException {
+             Thread.sleep(2000);
++            PageFactory.initElements(driver,this);
+             GetStartedbutton.click();
+ 
+         }
+Index: src/test/resources/features/TreeDS.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/TreeDS.feature b/src/test/resources/features/TreeDS.feature
+new file mode 100644
+--- /dev/null	(date 1691512778432)
++++ b/src/test/resources/features/TreeDS.feature	(date 1691512778432)
+@@ -0,0 +1,123 @@
++Feature: Tree Data Structure
++  Scenario: Tree DS Home Page
++    Given User is on the SignedIn Home Page for tree
++    When User Clicks on "Get Started" button on tree Data Structure
++    Then The Tree page appears
++
++  Scenario: Overview of Trees
++    When User clicks on Overview of Trees
++    Then The Overview of Trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Terminologies
++
++    When User clicks on Terminologies
++    Then The Terminologies page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Types of Trees
++    When User clicks on Types of Trees
++    Then The Types of Trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Tree Traversals
++    When User clicks on Tree Traversals
++    Then The Tree Traversals page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Traversals-Illustration
++    When User clicks on Traversals-Illustration
++    Then The Traversals-Illustration page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Binary Trees
++    When User clicks on Binary Trees
++    Then The Binary Trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Types of Binary Trees
++    When User clicks on Types of Binary Trees
++    Then The Types of Binary Trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++
++  Scenario: Implementation in Python
++    When User clicks on Implementation in Python
++    Then The Implementation in Python page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Binary Tree Traversals
++    When User clicks on Binary Tree Traversals
++    Then The Binary Tree Traversals page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++
++  Scenario: Implementation of Binary Trees
++    When User clicks on Implementation of Binary Trees
++    Then The Implementation of Binary Trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Applications of Binary trees
++    When User clicks on Applications of Binary trees
++    Then The Applications of Binary trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Binary Search Trees
++    When User clicks on Binary Search Trees
++    Then The Binary Search Trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++
++  Scenario: Implementation Of BST
++    When User clicks on Implementation Of BST
++    Then The Implementation Of BST page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++
++  Scenario: Practice Questions
++    When User clicks on Practice Questions
++    Then The Practice Questions Page Opens And User navigates back to queue operations
++    Then User clicks on NumpyNinja And Main HomePage Displays
++    And User clicks on main page Get Started
++
++
++
+Index: src/test/resources/features/QueueDS.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/QueueDS.feature b/src/test/resources/features/QueueDS.feature
+new file mode 100644
+--- /dev/null	(date 1691512778431)
++++ b/src/test/resources/features/QueueDS.feature	(date 1691512778431)
+@@ -0,0 +1,50 @@
++Feature: Queue Data Structure
++  Scenario: Queue DS Home Page
++    Given User is on the SignedIn Home Page
++    When User Clicks on "Get Started" button on Queue Data Structure
++    Then The queue page appears
++
++  Scenario: Implementation of Queue in Python
++      When User clicks on Implementation of Queue in python
++      Then The Implementation of Queue in python page opens
++      And User clicks on Try here button
++      Then the text editor opens and user gives python code
++      And User clicks on Run Button
++      Then The output is displayed
++
++    Scenario:Implementation Using collections.deque
++
++    When User clicks on implementation using collections.deque
++    Then The implementation using collections.deque page opens
++    And User clicks on Try here button
++      Then the text editor opens and user gives python code
++      And User clicks on Run Button
++      Then The output is displayed
++
++  Scenario: Implementation using array
++
++    When User clicks on implementation using array
++    Then The implementation using array page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Queue Operations
++
++    When User clicks on Queue Operations
++    Then The Queue Operations page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Practice Questions
++
++    When User clicks on Practice Questions
++    Then The Practice Questions Page Opens And User navigates back to queue operations
++    Then User clicks on NumpyNinja And Main HomePage Displays
++    And User clicks on main page Get Started
++
++
++
+Index: src/test/java/testRunner/Runner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package testRunner;\r\nimport io.cucumber.testng.AbstractTestNGCucumberTests;\r\nimport io.cucumber.testng.CucumberOptions;\r\n\r\n@CucumberOptions(\r\n\r\n        features = {\"C:/intellij/Ds/src/test/resources/features\"},\r\n        glue = {\"stepDefinition\"},\r\n        //tags = \"not @ignore\",\r\n        plugin = {\r\n                \"pretty\", \"html:src/test/resources/Reports/qualitypiratesReport.html\",\r\n\r\n        }\r\n)\r\npublic  class Runner extends AbstractTestNGCucumberTests {\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/testRunner/Runner.java b/src/test/java/testRunner/Runner.java
+--- a/src/test/java/testRunner/Runner.java	(revision 73777702407930dba0efdd77c7f5a2e4213fa689)
++++ b/src/test/java/testRunner/Runner.java	(date 1691512912873)
+@@ -4,11 +4,11 @@
+ 
+ @CucumberOptions(
+ 
+-        features = {"C:/intellij/Ds/src/test/resources/features"},
++        features = {"src/test/resources/features"},
+         glue = {"stepDefinition"},
+-        //tags = "not @ignore",
++      //  monochrome = true,
+         plugin = {
+-                "pretty", "html:src/test/resources/Reports/qualitypiratesReport.html",
++                "pretty", "html:src/test/resources/Reports/qualitypiratesReport.html"
+ 
+         }
+ )
+Index: src/test/java/stepDefinition/HomePage_SD.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package stepDefinition;\r\n\r\nimport io.cucumber.java.en.Given;\r\nimport io.cucumber.java.en.Then;\r\nimport io.cucumber.java.en.When;\r\nimport pageObject.HomePage_obj;\r\n\r\npublic class HomePage_SD {\r\n\r\n        HomePage_obj hp = new HomePage_obj();\r\n        @Given(\"The home page opens with the link {string}\")\r\n        public void the_home_page_opens_with_the_link(String string) {\r\n            System.out.println(\"String Value\" + string);\r\n            System.out.println(\"HP is\" + hp.toString());\r\n            hp.InitHomePage(string);\r\n\r\n        }\r\n\r\n        @When(\"user clicks get started without registration\")\r\n        public void user_clicks_get_started_without_registration() throws InterruptedException {\r\n            System.out.println(\"HP is\" + hp.toString());\r\n            hp.GetStartedBtn();\r\n\r\n        }\r\n\r\n        @Then(\"user is redirected to home page\")\r\n        public void user_is_redirected_to_home_page() {\r\n            hp.CheckHomePageDisplay();\r\n        }\r\n\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepDefinition/HomePage_SD.java b/src/test/java/stepDefinition/HomePage_SD.java
+--- a/src/test/java/stepDefinition/HomePage_SD.java	(revision 73777702407930dba0efdd77c7f5a2e4213fa689)
++++ b/src/test/java/stepDefinition/HomePage_SD.java	(date 1691512778422)
+@@ -16,8 +16,8 @@
+ 
+         }
+ 
+-        @When("user clicks get started without registration")
+-        public void user_clicks_get_started_without_registration() throws InterruptedException {
++        @When("User clicks on Get Started intialPage")
++        public void User_clicks_on_Get_Started_intialPage() throws InterruptedException {
+             System.out.println("HP is" + hp.toString());
+             hp.GetStartedBtn();
+ 
+Index: src/test/resources/features/HomePage.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#@ignore\r\nFeature: Open Homepage of Portal\r\n\r\n  Scenario: Home page\r\n    Given The home page opens with the link \"https://dsportalapp.herokuapp.com/\"\r\n    When user clicks get started without registration\r\n    Then user is redirected to home page
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/resources/features/HomePage.feature b/src/test/resources/features/HomePage.feature
+--- a/src/test/resources/features/HomePage.feature	(revision 73777702407930dba0efdd77c7f5a2e4213fa689)
++++ b/src/test/resources/features/HomePage.feature	(date 1691512778429)
+@@ -3,5 +3,5 @@
+ 
+   Scenario: Home page
+     Given The home page opens with the link "https://dsportalapp.herokuapp.com/"
+-    When user clicks get started without registration
++    When User clicks on Get Started intialPage
+     Then user is redirected to home page
+\ No newline at end of file
+Index: target/test-classes/features/QueueDS.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/test-classes/features/QueueDS.feature b/target/test-classes/features/QueueDS.feature
+new file mode 100644
+--- /dev/null	(date 1691512778434)
++++ b/target/test-classes/features/QueueDS.feature	(date 1691512778434)
+@@ -0,0 +1,50 @@
++Feature: Queue Data Structure
++  Scenario: Queue DS Home Page
++    Given User is on the SignedIn Home Page
++    When User Clicks on "Get Started" button on Queue Data Structure
++    Then The queue page appears
++
++  Scenario: Implementation of Queue in Python
++      When User clicks on Implementation of Queue in python
++      Then The Implementation of Queue in python page opens
++      And User clicks on Try here button
++      Then the text editor opens and user gives python code
++      And User clicks on Run Button
++      Then The output is displayed
++
++    Scenario:Implementation Using collections.deque
++
++    When User clicks on implementation using collections.deque
++    Then The implementation using collections.deque page opens
++    And User clicks on Try here button
++      Then the text editor opens and user gives python code
++      And User clicks on Run Button
++      Then The output is displayed
++
++  Scenario: Implementation using array
++
++    When User clicks on implementation using array
++    Then The implementation using array page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Queue Operations
++
++    When User clicks on Queue Operations
++    Then The Queue Operations page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Practice Questions
++
++    When User clicks on Practice Questions
++    Then The Practice Questions Page Opens And User navigates back to queue operations
++    Then User clicks on NumpyNinja And Main HomePage Displays
++    And User clicks on main page Get Started
++
++
++
+Index: src/test/java/pageObject/TreeDS_obj.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pageObject/TreeDS_obj.java b/src/test/java/pageObject/TreeDS_obj.java
+new file mode 100644
+--- /dev/null	(date 1691512778419)
++++ b/src/test/java/pageObject/TreeDS_obj.java	(date 1691512778419)
+@@ -0,0 +1,220 @@
++package pageObject;
++
++import baseDriverProperty.BaseClass;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.support.FindBy;
++import org.openqa.selenium.support.PageFactory;
++import org.testng.Assert;
++
++public class TreeDS_obj {
++
++    @FindBy(xpath = "//a[@href='tree']")
++    WebElement TreeGetStartedBtn;
++    @FindBy(xpath = "//h4[text()='Tree']")
++    WebElement TreeGetStartedMsg;
++    @FindBy(xpath = "//a[@href='overview-of-trees']")
++    WebElement OvTreeBtn;
++    @FindBy(xpath = "//p[text()='Overview of Trees']")
++    WebElement OvTreeMsg;
++    @FindBy(xpath = "//a[@href='/tree/terminologies/']")
++    WebElement TermBtn;
++    @FindBy(xpath = "//p[text()='Terminologies']")
++    WebElement TermMsg;
++    @FindBy(xpath = "//a[@href='/tree/types-of-trees/']")
++    WebElement TypeTreesBtn;
++    @FindBy(xpath = "//p[text()='Types of Trees']")
++    WebElement TypeTreesMsg;
++    @FindBy(xpath = "//a[@href='/tree/tree-traversals/']")
++    WebElement TreeTravBtn;
++    @FindBy(xpath = "//p[text()='Tree Traversals']")
++    WebElement TreeTravMsg;
++    @FindBy(xpath = "//a[@href='/tree/traversals-illustration/']")
++    WebElement TreeTravIllBtn;
++    @FindBy(xpath = "//p[text()='Traversals-Illustration']")
++    WebElement TreeTravIllMsg;
++    @FindBy(xpath = "//a[@href='/tree/binary-trees/']")
++    WebElement BinTreeBtn;
++    @FindBy(xpath = "//p[text()='Binary Trees']")
++    WebElement BinTreeMsg;
++    @FindBy(xpath = "//a[@href='/tree/types-of-binary-trees/']")
++    WebElement TypeBinTreeBtn;
++    @FindBy(xpath = "//p[text()='Types of Binary Trees']")
++    WebElement TypeBinTreeMsg;
++    @FindBy(xpath = "//a[@href='/tree/implementation-in-python/']")
++    WebElement ImplPythTreeBtn;
++    @FindBy(xpath = "//p[text()='Implementation in Python']")
++    WebElement ImplPythTreeMsg;
++    @FindBy(xpath = "//a[@href='/tree/binary-tree-traversals/']")
++    WebElement BinTreeTravBtn;
++    @FindBy(xpath = "//p[text()='Binary Tree Traversals']")
++    WebElement BinTreeTravMsg;
++    @FindBy(xpath = "//a[@href='/tree/implementation-of-binary-trees/']")
++    WebElement ImplBinTreeBtn;
++    @FindBy(xpath = "//p[text()='Implementation of Binary Trees']")
++    WebElement ImplBinTreeMsg;
++    @FindBy(xpath = "//a[@href='/tree/applications-of-binary-trees/']")
++    WebElement AppliBinTreeBtn;
++    @FindBy(xpath = "//p[text()='Applications of Binary trees']")
++    WebElement AppliBinTreeMsg;
++    @FindBy(xpath = "//a[@href='/tree/binary-search-trees/']")
++    WebElement BinSearchTreeBtn;
++    @FindBy(xpath = "//p[text()='Binary Search Trees']")
++    WebElement BinSearchTreeMsg;
++    @FindBy(xpath = "//a[@href='/tree/implementation-of-bst/']")
++    WebElement ImplBSTBtn;
++    @FindBy(xpath = "//p[text()='Implementation Of BST']")
++    WebElement ImplBSTMsg;
++    @FindBy(xpath = "//a[@href='/tryEditor']")
++    WebElement TryHereBtn;
++
++
++    WebDriver driver = BaseClass.setDriver();
++    Boolean status;
++
++    public void LandingPage() {
++        PageFactory.initElements(driver, this);
++    }
++
++    public void TreeGetStarted() {
++        PageFactory.initElements(driver, this);
++        TreeGetStartedBtn.click();
++    }
++
++    public void TreeLandpageChk() {
++        status = TreeGetStartedMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++    public void OverTreeLink() {
++        PageFactory.initElements(driver, this);
++        OvTreeBtn.click();
++    }
++
++    public void OverTreeLinkChk() {
++        status = OvTreeMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++    public void Termlink() {
++        PageFactory.initElements(driver, this);
++        TermBtn.click();
++    }
++
++    public void TermlinkChk() {
++        status = TermMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++    public void TypesofTreeLink() {
++        PageFactory.initElements(driver, this);
++        TypeTreesBtn.click();
++    }
++
++    public void TypesofTreeMsg() {
++        status = TypeTreesMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++    public void TreeTraverseLink() {
++        PageFactory.initElements(driver, this);
++        TreeTravBtn.click();
++    }
++
++    public void TreeTraverseMsg() {
++        status = TreeTravMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++    public void TraverseIllLink() {
++        PageFactory.initElements(driver, this);
++        TreeTravIllBtn.click();
++    }
++
++    public void TraverseIllMsg() {
++        status = TreeTravIllMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++    public void BinaryTreeLink() {
++        PageFactory.initElements(driver, this);
++        BinTreeBtn.click();
++    }
++
++    public void BinaryTreeMSg() {
++        status = BinTreeMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++    public void TypesBinaryTreeLink() {
++        PageFactory.initElements(driver, this);
++        TypeBinTreeBtn.click();
++    }
++
++    public void TypesBinaryTreeMsg() {
++        status = TypeBinTreeMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++    public void ImplinPythonTreeLink() {
++        PageFactory.initElements(driver, this);
++        ImplPythTreeBtn.click();
++    }
++
++    public void ImplinPythonTreeMsg() {
++        status = ImplPythTreeMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++
++    public void BinTreeTravLink() {
++        PageFactory.initElements(driver, this);
++        BinTreeTravBtn.click();
++    }
++
++    public void BinTreeTravMsg() {
++        status = BinTreeTravMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++    public void ImplofBinTreesLink() {
++        PageFactory.initElements(driver, this);
++        ImplBinTreeBtn.click();
++    }
++
++    public void ImplofBinTreesMsg() {
++        status = ImplBinTreeMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++    public void AppofBinTreesLink() {
++        PageFactory.initElements(driver, this);
++        AppliBinTreeBtn.click();
++    }
++
++    public void AppofBinTreesMsg() {
++        status = AppliBinTreeMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++
++    public void SearchBinTreesLink() {
++        PageFactory.initElements(driver, this);
++        BinSearchTreeBtn.click();
++    }
++
++    public void SearchBinTreesMsg() {
++        status = BinSearchTreeMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++    public void ImplBSTLink() {
++        PageFactory.initElements(driver, this);
++        ImplBSTBtn.click();
++    }
++
++    public void ImplBSTMsg() {
++        status = ImplBSTMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++}
+Index: target/test-classes/features/HomePage.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n\r\nFeature: Open Homepage of Portal\r\n  Scenario: Home page\r\n    Given The home page opens with the link \"https://dsportalapp.herokuapp.com/\"\r\n    When user clicks get started without registration\r\n    Then user is redirected to home page
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/test-classes/features/HomePage.feature b/target/test-classes/features/HomePage.feature
+--- a/target/test-classes/features/HomePage.feature	(revision 73777702407930dba0efdd77c7f5a2e4213fa689)
++++ b/target/test-classes/features/HomePage.feature	(date 1691512778433)
+@@ -3,5 +3,5 @@
+ Feature: Open Homepage of Portal
+   Scenario: Home page
+     Given The home page opens with the link "https://dsportalapp.herokuapp.com/"
+-    When user clicks get started without registration
++    When User clicks on Get Started intialPage
+     Then user is redirected to home page
+\ No newline at end of file
+Index: target/test-classes/features/TreeDS.feature
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/test-classes/features/TreeDS.feature b/target/test-classes/features/TreeDS.feature
+new file mode 100644
+--- /dev/null	(date 1691512778435)
++++ b/target/test-classes/features/TreeDS.feature	(date 1691512778435)
+@@ -0,0 +1,123 @@
++Feature: Tree Data Structure
++  Scenario: Tree DS Home Page
++    Given User is on the SignedIn Home Page for tree
++    When User Clicks on "Get Started" button on tree Data Structure
++    Then The Tree page appears
++
++  Scenario: Overview of Trees
++    When User clicks on Overview of Trees
++    Then The Overview of Trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Terminologies
++
++    When User clicks on Terminologies
++    Then The Terminologies page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Types of Trees
++    When User clicks on Types of Trees
++    Then The Types of Trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Tree Traversals
++    When User clicks on Tree Traversals
++    Then The Tree Traversals page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Traversals-Illustration
++    When User clicks on Traversals-Illustration
++    Then The Traversals-Illustration page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Binary Trees
++    When User clicks on Binary Trees
++    Then The Binary Trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Types of Binary Trees
++    When User clicks on Types of Binary Trees
++    Then The Types of Binary Trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++
++  Scenario: Implementation in Python
++    When User clicks on Implementation in Python
++    Then The Implementation in Python page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Binary Tree Traversals
++    When User clicks on Binary Tree Traversals
++    Then The Binary Tree Traversals page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++
++  Scenario: Implementation of Binary Trees
++    When User clicks on Implementation of Binary Trees
++    Then The Implementation of Binary Trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Applications of Binary trees
++    When User clicks on Applications of Binary trees
++    Then The Applications of Binary trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++  Scenario: Binary Search Trees
++    When User clicks on Binary Search Trees
++    Then The Binary Search Trees page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++
++  Scenario: Implementation Of BST
++    When User clicks on Implementation Of BST
++    Then The Implementation Of BST page opens
++    And User clicks on Try here button
++    Then the text editor opens and user gives python code
++    And User clicks on Run Button
++    Then The output is displayed
++
++
++  Scenario: Practice Questions
++    When User clicks on Practice Questions
++    Then The Practice Questions Page Opens And User navigates back to queue operations
++    Then User clicks on NumpyNinja And Main HomePage Displays
++    And User clicks on main page Get Started
++
++
++
+Index: src/test/java/pageObject/Queue_obj.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pageObject/Queue_obj.java b/src/test/java/pageObject/Queue_obj.java
+new file mode 100644
+--- /dev/null	(date 1691512778417)
++++ b/src/test/java/pageObject/Queue_obj.java	(date 1691512778417)
+@@ -0,0 +1,113 @@
++package pageObject;
++
++import baseDriverProperty.BaseClass;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.support.FindBy;
++import org.openqa.selenium.support.PageFactory;
++import org.testng.Assert;
++
++public class Queue_obj {
++    boolean status;
++    WebDriver driver = BaseClass.setDriver();
++    @FindBy(xpath = "//a[@href='queue']")
++    WebElement QueueGetStartedBtn;
++    @FindBy(xpath = "//h4[text()='Queue']")
++    WebElement QueueLPMsg;
++
++    @FindBy(xpath = "//a[@href='implementation-lists']")
++    WebElement ImplQueuePythonBtn;
++    @FindBy(xpath = "//p[text()='Implementation of Queue in Python']")
++    WebElement ImplQueueMsg;
++  //  @FindBy(xpath = "//a[@href='/queue/implementation-lists/']")
++  //  WebElement ImplCollLink;
++    @FindBy(xpath = "//a[@href='/queue/implementation-collections/']")
++    WebElement ImplQueueCollBtn;
++    @FindBy(xpath = "//p[text()='Implementation using collections.deque']")
++    WebElement ImplQueueCollMsg;
++    @FindBy(xpath = "//a[@href='/queue/Implementation-array/']")
++    WebElement ImplArrayBtn;
++    @FindBy(xpath = "//p[text()='Implementation using array']")
++    WebElement ImplArrayMsg ;
++    @FindBy(xpath = "//a[@href='/queue/QueueOp/']")
++    WebElement QueueOpsBtn ;
++    @FindBy(xpath = "//p[text()='Queue Operations']")
++    WebElement QueueOpsMsg;
++    @FindBy(xpath = "//a[@href='/tryEditor']")
++    WebElement TryHereBtn;
++
++//    JavascriptExecutor jse = (JavascriptExecutor) driver;
++
++    public void LandingPage() {
++        PageFactory.initElements(driver, this);
++    }
++
++    public void QueueGStarted() {
++        QueueGetStartedBtn.click();
++    }
++
++    public void CheckQueLanding() {
++        status = QueueLPMsg.isDisplayed();
++        Assert.assertTrue(status);
++        //    jse.executeScript("window.scrollBy(0,500);");
++    }
++
++    //Implementation of Queue Page
++    public void ImplofQueuePython() {
++        PageFactory.initElements(driver, this);
++        ImplQueuePythonBtn.click();
++    }
++
++    public void implQueuechk() {
++        PageFactory.initElements(driver, this);
++        status = ImplQueueMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++    public void implCollections() {
++        PageFactory.initElements(driver, this);
++        ImplQueueCollBtn.click();
++    }
++
++    public void implCollchk() {
++        PageFactory.initElements(driver, this);
++        status = ImplQueueCollMsg.isDisplayed();
++        Assert.assertTrue(status);
++    }
++
++    public void implusingarray()
++    {
++        PageFactory.initElements(driver, this);
++        ImplArrayBtn.click();
++    }
++
++    public void implarraychk()
++    {
++        PageFactory.initElements(driver, this);
++        status = ImplArrayMsg.isDisplayed();
++        Assert.assertTrue(status);
++
++    }
++
++    public void queueops()
++    {
++        PageFactory.initElements(driver, this);
++        QueueOpsBtn.click();
++
++    }
++    public void queueopschk()
++    {
++        PageFactory.initElements(driver, this);
++        status = QueueOpsMsg.isDisplayed();
++        Assert.assertTrue(status);
++
++    }
++
++    public void TryHereButton()
++    {
++        PageFactory.initElements(driver,this);
++        TryHereBtn.click();
++
++    }
++
++}
+Index: src/test/java/baseDriverProperty/BaseClass.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package baseDriverProperty;\r\n\r\nimport io.github.bonigarcia.wdm.WebDriverManager;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.chrome.ChromeDriver;\r\n\r\nimport java.time.Duration;\r\n\r\npublic class BaseClass {\r\n\r\n    public static WebDriver driver;\r\n\r\n    public static WebDriver getDriver()\r\n    {\r\n        WebDriverManager.chromedriver().setup();\r\n        driver = new ChromeDriver();\r\n        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));\r\n        driver.manage().window().maximize();\r\n\r\n        return driver;\r\n    }\r\n\r\n    public static WebDriver setDriver() {\r\n        BaseClass.driver = driver;\r\n        return driver;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/baseDriverProperty/BaseClass.java b/src/test/java/baseDriverProperty/BaseClass.java
+--- a/src/test/java/baseDriverProperty/BaseClass.java	(revision 73777702407930dba0efdd77c7f5a2e4213fa689)
++++ b/src/test/java/baseDriverProperty/BaseClass.java	(date 1691512778413)
+@@ -17,6 +17,7 @@
+         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+         driver.manage().window().maximize();
+ 
++
+         return driver;
+     }
+ 
+Index: src/test/java/pageObject/Home_SetObj.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pageObject/Home_SetObj.java b/src/test/java/pageObject/Home_SetObj.java
+new file mode 100644
+--- /dev/null	(date 1691512778415)
++++ b/src/test/java/pageObject/Home_SetObj.java	(date 1691512778415)
+@@ -0,0 +1,22 @@
++package pageObject;
++
++import baseDriverProperty.BaseClass;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.support.FindBy;
++import org.openqa.selenium.support.PageFactory;
++
++public class Home_SetObj {
++
++    WebDriver driver = BaseClass.setDriver();
++    @FindBy(xpath = "//button[@class='btn']")
++    WebElement GetStartedbtn;
++
++
++    public void GetStartedBtn_HMPage() throws InterruptedException {
++        PageFactory.initElements(driver,this);
++        Thread.sleep(2000);
++        GetStartedbtn.click();
++
++    }
++}
+Index: src/test/java/pageObject/PracticeQuestions_obj.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pageObject/PracticeQuestions_obj.java b/src/test/java/pageObject/PracticeQuestions_obj.java
+new file mode 100644
+--- /dev/null	(date 1691512778416)
++++ b/src/test/java/pageObject/PracticeQuestions_obj.java	(date 1691512778416)
+@@ -0,0 +1,44 @@
++package pageObject;
++
++import baseDriverProperty.BaseClass;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.support.FindBy;
++import org.openqa.selenium.support.PageFactory;
++import org.testng.Assert;
++
++public class PracticeQuestions_obj {
++    WebDriver driver = BaseClass.setDriver();
++    @FindBy(xpath = "//a[text()='Practice Questions']")
++    WebElement PracQuestionsBtn;
++
++    @FindBy(xpath = "//a[text()='NumpyNinja']")
++    WebElement NumpyNinjaDisplay;
++
++    @FindBy(xpath = "//a[@href='/']")
++    WebElement NumNinjaBtn;
++
++
++    Boolean status;
++
++    public void pracQuestionPage()
++    {
++       PageFactory.initElements(driver, this);
++        PracQuestionsBtn.click();
++    }
++
++    public void pracQuestionChk()
++    {
++        PageFactory.initElements(driver,this);
++        status = NumpyNinjaDisplay.isDisplayed();
++        Assert.assertTrue(status);
++        driver.navigate().back();
++    }
++
++    public void NumpyNinjaHome()
++    {
++        PageFactory.initElements(driver,this);
++        NumNinjaBtn.click();
++    }
++
++}
+Index: src/test/java/pageObject/TryHereEditor_obj.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/pageObject/TryHereEditor_obj.java b/src/test/java/pageObject/TryHereEditor_obj.java
+new file mode 100644
+--- /dev/null	(date 1691512778420)
++++ b/src/test/java/pageObject/TryHereEditor_obj.java	(date 1691512778420)
+@@ -0,0 +1,76 @@
++package pageObject;
++
++import baseDriverProperty.BaseClass;
++import org.openqa.selenium.Alert;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.support.FindBy;
++import org.openqa.selenium.support.PageFactory;
++import org.testng.Assert;
++import utilities.LoggerLoad;
++
++public class TryHereEditor_obj {
++
++    boolean status;
++    WebDriver driver = BaseClass.setDriver();
++
++    @FindBy(xpath = "//pre[@id='output']")
++    WebElement OutputChk;
++    @FindBy(xpath = "//form[@id='answer_form']//div//div//div//textarea")
++    WebElement Editorbx;
++
++    @FindBy(xpath = "//button[@type='button']")
++    WebElement RunBtn;
++
++ /*   public void EditorBoxInput() {
++        PageFactory.initElements(driver, this);
++        driver.navigate().back();
++
++        //    System.out.println("Run Editor Box");
++        //    CursorBtn.click();
++
++
++        //   System.out.println("after Run Editor Box");
++    }*/
++
++    public void EditorBoxInput() {
++        PageFactory.initElements(driver, this);
++
++        //    CursorBtn.click();
++        Editorbx.sendKeys("a=10\n b=20\nc=a+b\nprint c");
++
++    }
++
++    public void RunBtnclick() {
++        PageFactory.initElements(driver, this);
++        RunBtn.click();
++
++        try {
++            Alert alert = driver.switchTo().alert();
++            String alertText = alert.getText();
++            System.out.println("ERROR: (ALERT BOX DETECTED) - ALERT MSG : " + alertText);
++            alert.accept();
++            LoggerLoad.error("Error Message Alert Box : " + alertText);
++            //driver.navigate().back();
++        } catch (Exception e) {
++            String opdisplay = OutputChk.getText();
++            //     System.out.printf("The output is " + opdisplay);
++            LoggerLoad.info("The output value of python code is " + opdisplay);
++        }
++    }
++
++    public void OutputChkMsg() throws Exception  {
++        try {
++            status = OutputChk.isDisplayed();
++            Assert.assertTrue(status);
++            LoggerLoad.info("Assert True in try editor block");
++
++        } catch (AssertionError e) {
++            LoggerLoad.error("Assert false in try editor block");
++            System.out.println(e.getMessage());
++        }
++        driver.navigate().back();
++    }
++
++
++}
+Index: src/test/java/stepDefinition/PracticeQuestions_SD.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepDefinition/PracticeQuestions_SD.java b/src/test/java/stepDefinition/PracticeQuestions_SD.java
+new file mode 100644
+--- /dev/null	(date 1691512778424)
++++ b/src/test/java/stepDefinition/PracticeQuestions_SD.java	(date 1691512778424)
+@@ -0,0 +1,39 @@
++package stepDefinition;
++
++
++import io.cucumber.java.en.Given;
++import io.cucumber.java.en.Then;
++import io.cucumber.java.en.When;
++import pageObject.HomePage_obj;
++import pageObject.PracticeQuestions_obj;
++import pageObject.Queue_obj;
++
++public class PracticeQuestions_SD {
++
++
++    PracticeQuestions_obj prcque = new PracticeQuestions_obj();
++
++
++
++
++    @When("User clicks on Practice Questions")
++    public void user_clicks_on_practice_questions() throws InterruptedException {
++        Thread.sleep(2000);
++        prcque.pracQuestionPage();
++    }
++
++    @Then("The Practice Questions Page Opens And User navigates back to queue operations")
++    public void the_practice_questions_page_opens_and_user_navigates_back_to_queue_operations() throws InterruptedException {
++        Thread.sleep(2000);
++        prcque.pracQuestionChk();
++    }
++
++    @Then("User clicks on NumpyNinja And Main HomePage Displays")
++    public void user_clicks_on_numpy_ninja_And_Main_HomePage_Displays() throws InterruptedException {
++        Thread.sleep(2000);
++        prcque.NumpyNinjaHome();
++    }
++
++
++
++}
+Index: src/test/java/stepDefinition/TreeDs_SD.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/stepDefinition/TreeDs_SD.java b/src/test/java/stepDefinition/TreeDs_SD.java
+new file mode 100644
+--- /dev/null	(date 1691512778426)
++++ b/src/test/java/stepDefinition/TreeDs_SD.java	(date 1691512778426)
+@@ -0,0 +1,184 @@
++package stepDefinition;
++
++import gherkin.lexer.Th;
++import io.cucumber.java.en.Given;
++import io.cucumber.java.en.Then;
++import io.cucumber.java.en.When;
++import pageObject.TreeDS_obj;
++
++public class TreeDs_SD {
++
++    TreeDS_obj trobj = new TreeDS_obj();
++    @Given("User is on the SignedIn Home Page for tree")
++    public void user_is_on_the_signed_in_home_page_for_tree() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.LandingPage();
++    }
++    @When("User Clicks on {string} button on tree Data Structure")
++    public void userClicksOnButtonOnTreeDataStructure(String arg0) throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.TreeGetStarted();
++    }
++    @Then("The Tree page appears")
++    public void the_Tree_page_appears() throws InterruptedException {
++        Thread.sleep(2000);
++      trobj.TreeLandpageChk();
++    }
++
++    @When("User clicks on Overview of Trees")
++    public void userClicksOnOverviewOfTrees() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.OverTreeLink();
++    }
++
++    @Then("The Overview of Trees page opens")
++    public void theOverviewOfTreesPageOpens() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.OverTreeLinkChk();
++    }
++
++    @When("User clicks on Terminologies")
++    public void userClicksOnTerminologies() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.Termlink();
++    }
++
++    @Then("The Terminologies page opens")
++    public void theTerminologiesPageOpens() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.TermlinkChk();
++    }
++
++    @When("User clicks on Types of Trees")
++    public void userClicksOnTypesOfTrees() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.TypesofTreeLink();
++    }
++
++    @Then("The Types of Trees page opens")
++    public void theTypesOfTreesPageOpens() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.TypesofTreeMsg();
++    }
++
++    @When("User clicks on Tree Traversals")
++    public void userClicksOnTreeTraversals() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.TreeTraverseLink();
++    }
++
++    @Then("The Tree Traversals page opens")
++    public void theTreeTraversalsPageOpens() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.TreeTraverseMsg();
++    }
++
++    @When("User clicks on Traversals-Illustration")
++    public void userClicksOnTraversalsIllustration() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.TraverseIllLink();
++    }
++
++    @Then("The Traversals-Illustration page opens")
++    public void theTraversalsIllustrationPageOpens() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.TraverseIllMsg();
++    }
++
++    @When("User clicks on Binary Trees")
++    public void userClicksOnBinaryTrees() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.BinaryTreeLink();
++    }
++
++    @Then("The Binary Trees page opens")
++    public void theBinaryTreesPageOpens() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.BinaryTreeMSg();
++    }
++
++    @When("User clicks on Types of Binary Trees")
++    public void userClicksOnTypesOfBinaryTrees() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.TypesBinaryTreeLink();
++    }
++
++    @Then("The Types of Binary Trees page opens")
++    public void theTypesOfBinaryTreesPageOpens() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.TypesBinaryTreeMsg();
++    }
++
++    @When("User clicks on Implementation in Python")
++    public void userClicksOnImplementationInPython() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.ImplinPythonTreeLink();
++    }
++
++    @Then("The Implementation in Python page opens")
++    public void theImplementationInPythonPageOpens() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.ImplinPythonTreeMsg();
++    }
++
++    @When("User clicks on Binary Tree Traversals")
++    public void userClicksOnBinaryTreeTraversals() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.BinTreeTravLink();
++    }
++
++    @Then("The Binary Tree Traversals page opens")
++    public void theBinaryTreeTraversalsPageOpens() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.BinTreeTravMsg();
++    }
++
++    @When("User clicks on Implementation of Binary Trees")
++    public void userClicksOnImplementationOfBinaryTrees() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.ImplofBinTreesLink();
++    }
++
++    @Then("The Implementation of Binary Trees page opens")
++    public void theImplementationOfBinaryTreesPageOpens() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.ImplofBinTreesMsg();
++    }
++
++    @When("User clicks on Applications of Binary trees")
++    public void userClicksOnApplicationsOfBinaryTrees() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.AppofBinTreesLink();
++    }
++
++    @Then("The Applications of Binary trees page opens")
++    public void theApplicationsOfBinaryTreesPageOpens() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.AppofBinTreesMsg();
++    }
++
++    @When("User clicks on Binary Search Trees")
++    public void userClicksOnBinarySearchTrees() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.SearchBinTreesLink();
++    }
++
++    @Then("The Binary Search Trees page opens")
++    public void theBinarySearchTreesPageOpens() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.SearchBinTreesMsg();
++    }
++
++    @When("User clicks on Implementation Of BST")
++    public void userClicksOnImplementationOfBST() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.ImplBSTLink();
++    }
++
++    @Then("The Implementation Of BST page opens")
++    public void theImplementationOfBSTPageOpens() throws InterruptedException {
++        Thread.sleep(2000);
++        trobj.ImplBSTMsg();
++    }
++
++}
